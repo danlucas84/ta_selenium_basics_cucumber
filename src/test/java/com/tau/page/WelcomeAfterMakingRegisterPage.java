@@ -43,3 +43,5 @@ public class WelcomeAfterMakingRegisterPage extends PageObject {
 //        String text = welcomeTextMessage.getText();
 //        return text;
 
+
+

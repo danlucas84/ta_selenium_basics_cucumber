@@ -22,14 +22,14 @@ public class RegisterSteps implements En {
     private WelcomeAfterMakingRegisterPage welcomeAfterMakingRegisterPage;
 
 
-    public RegisterSteps() {
+    public RegisterSteps(LoginSteps loginSteps) {
 
 
 
 
         When("I click register on the left menu", () -> {
 
-            homePage = new HomePage(driver);
+            homePage = new HomePage(loginSteps.getDriver());
             registerPage = homePage.clickRegisterLeftMenuButton();
 
 

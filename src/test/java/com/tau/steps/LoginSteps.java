@@ -1,29 +1,26 @@
 package com.tau.steps;
 
-import com.tau.config.WebDriverFactory;
 import com.tau.page.AccountOverviewPage;
 import com.tau.page.HomePage;
 import io.cucumber.java8.En;
-import net.bytebuddy.pool.TypePool;
-import org.assertj.core.api.Assert;
 import org.openqa.selenium.WebDriver;
 
-import java.util.List;
-import java.util.Map;
+// stworzyc klasa commonSteps classa Commmons w kteorej bedzie otwieranie przeglarki zamykanie ,
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class LoginSteps implements En { // implemetuje wersje jezykowa
-    private WebDriver driver;
+    //private WebDriver driver;
     private HomePage homePage;
     private AccountOverviewPage accountOverviewPage;
 
-    public LoginSteps() {
+    public LoginSteps(CommonSteps commonSteps, WebDriver driver) {
 
         Given("I am in the login page of the Para Bank Application", () -> {
-            driver = WebDriverFactory.CHROME.create();
-            driver.get("https://parabank.parasoft.com/parabank/index.htm");
-        });
+            //driver = WebDriverFactory.CHROME.create();
+            //driver = WebDriverFactory.FIREFOX.create();
+            commonSteps.getDriver().get("https://parabank.parasoft.com/parabank/index.htm");
+        }); // coomonssteps.getdriver.get zamiast driver.get
 
 
         When("I enter valid {string} and {string}", (String username, String password) -> {
@@ -76,9 +73,9 @@ public class LoginSteps implements En { // implemetuje wersje jezykowa
 
 
 
+    }
 
-
-
-
+    public WebDriver getDriver() {
+        return driver;
     }
 }

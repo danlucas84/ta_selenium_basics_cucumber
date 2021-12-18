@@ -1,4 +1,5 @@
 @login
+@scenario
 Feature: Login Functionality
 
   In order to do internet banking

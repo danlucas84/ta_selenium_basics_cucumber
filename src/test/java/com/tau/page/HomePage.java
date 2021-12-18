@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePage extends PageObject {
+public class HomePage extends MenuWelcomeToParaBankPage {
 
     @FindBy(name = "username")
     private WebElement usernameInput;
@@ -21,10 +21,15 @@ public class HomePage extends PageObject {
     @FindBy(css = "#rightPanel > div > div > h1")
     private WebElement accountOverviewHeader;
 
+    @FindBy(css = "#rightPanel > ul.services > li.captionone")
+    private WebElement atmServiceHeader;
+
+    @FindBy(css = "#rightPanel > h1")
+    private WebElement paraSoftDemoWebsiteTitleHeader;
+
     public HomePage(WebDriver driver) {
         super(driver); // super odnosi sie do klassy pageobject a driver jest zmienna typu web driver przekazywanan jako parametr konstruktora homepage przekazuje obiekt typu webdriver
     }
-
 
 
     public void enterUsernameInput(String username) {
@@ -49,10 +54,17 @@ public class HomePage extends PageObject {
         registerLeftMenuButton.click();
         return new RegisterPage(driver);
     }
+
     public String getAccountOverviewHeader() {
 
         return accountOverviewHeader.getText();
     }
+
+    public String getAtmServiceHeader() {
+
+        return atmServiceHeader.getText();
+    }
+
 }
 
 
