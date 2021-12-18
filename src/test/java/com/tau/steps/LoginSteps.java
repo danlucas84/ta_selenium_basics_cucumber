@@ -14,7 +14,7 @@ public class LoginSteps implements En { // implemetuje wersje jezykowa
     private HomePage homePage;
     private AccountOverviewPage accountOverviewPage;
 
-    public LoginSteps(CommonSteps commonSteps, WebDriver driver) {
+    public LoginSteps(CommonSteps commonSteps) {
 
         Given("I am in the login page of the Para Bank Application", () -> {
             //driver = WebDriverFactory.CHROME.create();
@@ -24,7 +24,7 @@ public class LoginSteps implements En { // implemetuje wersje jezykowa
 
 
         When("I enter valid {string} and {string}", (String username, String password) -> {
-            homePage = new HomePage(driver);
+            homePage = new HomePage(commonSteps.getDriver());
             homePage.enterUsernameInput(username);
             homePage.enterPasswordInput(password);
 
@@ -40,7 +40,7 @@ public class LoginSteps implements En { // implemetuje wersje jezykowa
             String expectedAccountOverviewHeader = "Accounts Overview";
             String expectedCurrentUrl = "https://parabank.parasoft.com/parabank/overview.htm";
             //expectedAccountOverviewHeader = accountOverviewPage.getAccountOverviewHeader(); zle bo nadpisje tutaj wartosc inicjalna text ktory podalem jako expected
-            assertThat(driver.getCurrentUrl()).isEqualTo(expectedCurrentUrl);
+            assertThat(commonSteps.getDriver().getCurrentUrl()).isEqualTo(expectedCurrentUrl);
             assertThat(accountOverviewPage.getAccountOverviewHeader()).isEqualTo(expectedAccountOverviewHeader);
         });
 //            List<List<String>> lists = dataTable.asList(String.class);
@@ -48,14 +48,14 @@ public class LoginSteps implements En { // implemetuje wersje jezykowa
 
 
         When("I enter valid credentials username {string} and password {string}", (String username, String password) -> {
-            homePage = new HomePage(driver);
+            homePage = new HomePage(commonSteps.getDriver());
             homePage.enterUsernameInput(username);
             homePage.enterPasswordInput(password);
             accountOverviewPage = homePage.clickLoginButton();
         });
 
         When("I enter invalid credentials username {string} and password {string}", (String username, String password) -> {
-            homePage = new HomePage(driver);
+            homePage = new HomePage(commonSteps.getDriver());
             homePage.enterUsernameInput(username);
             homePage.enterPasswordInput(password);
             accountOverviewPage = homePage.clickLoginButton();
@@ -66,7 +66,7 @@ public class LoginSteps implements En { // implemetuje wersje jezykowa
             String expectedAccountOverviewHeader = "Accounts Overview";
             String expectedCurrentUrl = "https://parabank.parasoft.com/parabank/overview.htm";
 
-            assertThat(driver.getCurrentUrl()).isNotEqualTo(expectedCurrentUrl);
+            assertThat(commonSteps.getDriver().getCurrentUrl()).isNotEqualTo(expectedCurrentUrl);
             assertThat(accountOverviewPage.getAccountOverviewHeader()).isNotEqualTo(expectedAccountOverviewHeader);
         });
 
