@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class LoginSteps implements En { // implemetuje wersje jezykowa
-    //private WebDriver driver;
+    //private WebDriver driver; do wyrzucenia przy refaktorze
     private HomePage homePage;
     private AccountOverviewPage accountOverviewPage;
 

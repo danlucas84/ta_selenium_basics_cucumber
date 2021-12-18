@@ -17,10 +17,10 @@ public class WelcomeToParaBankSteps implements En {
     // stworzyc bibiotek commons gdzie bedzie krok wrodzenia na strone glowna i logowanie oraz zamykanie browsera  co jest prekazywane do innych stepsow
 
 
-    public WelcomeToParaBankSteps(LoginSteps loginSteps) {
+    public WelcomeToParaBankSteps(LoginSteps loginSteps, CommonSteps commonSteps ) {
 
         When("I click home icon", () -> {
-            HomePage homePage = new HomePage(loginSteps.getDriver());
+            HomePage homePage = new HomePage(commonSteps.getDriver());
             homePage.clickHomeIcon();
         });
         Then("I can move back to main page", () -> {
@@ -39,7 +39,7 @@ public class WelcomeToParaBankSteps implements En {
         });
 
         When("I click envelop icon", () -> {
-            HomePage homePage = new HomePage(loginSteps.getDriver());
+            HomePage homePage = new HomePage(commonSteps.getDriver());
             customerCarePage = homePage.clickEnvelopIcon();
         });
 
