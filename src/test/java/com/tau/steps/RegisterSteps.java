@@ -14,6 +14,7 @@ import java.util.Map;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class RegisterSteps implements En {
+    private final CommonSteps commonSteps = null;
     // zadektlaoewac zmienna globalna login steps a nastepnie do tej zmiennej przypisac w konstruktorze parametr konstruktora
     private LoginSteps loginSteps;
     private WebDriver driver;
@@ -29,7 +30,7 @@ public class RegisterSteps implements En {
 
         When("I click register on the left menu", () -> {
 
-            homePage = new HomePage(loginSteps.getDriver());
+            homePage = new HomePage(commonSteps.getDriver());
             registerPage = homePage.clickRegisterLeftMenuButton();
 
 

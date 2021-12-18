@@ -29,7 +29,7 @@ public class WelcomeToParaBankSteps implements En {
 
 
         When("I click parent with child icon", () -> {
-            HomePage homePage = new HomePage(loginSteps.getDriver());
+            HomePage homePage = new HomePage(commonSteps.getDriver());
             paraSoftDemoWebsitePage = homePage.clickParentWithChildIcon();
         });
 

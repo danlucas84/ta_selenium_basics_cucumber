@@ -33,7 +33,7 @@ public class LoginSteps implements En { // implemetuje wersje jezykowa
 
         And("^click login$", () -> {
             accountOverviewPage = homePage.clickLoginButton(); // przpisanie waryosci zwracanej fukcji do zmienne accountoverviewpage
-           // homePage.clickLoginButton() = accountOverviewPage;  zle podejscie nie moozna przupisac wartosci do ffukxcji
+            // homePage.clickLoginButton() = accountOverviewPage;  zle podejscie nie moozna przupisac wartosci do ffukxcji
         });
 
         Then("I should be taken to the Overview page", () -> {
@@ -70,12 +70,12 @@ public class LoginSteps implements En { // implemetuje wersje jezykowa
             assertThat(accountOverviewPage.getAccountOverviewHeader()).isNotEqualTo(expectedAccountOverviewHeader);
         });
 
-
-
-
     }
 
-    public WebDriver getDriver() {
-        return driver;
-    }
+
 }
+
+// public WebDriver getDriver() {
+//return driver;
+
+
